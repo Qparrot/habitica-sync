@@ -3,6 +3,7 @@ import TodoItem from "./TodoItem"
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 export default function Index(props: any){
+    console.log(props);
     if(props.todos == undefined) {
         return <div id="classDisplay">No Todos present.</div>
     }
@@ -13,7 +14,7 @@ export default function Index(props: any){
                     let todo_notes = '';
                     let todo_subtasks = '';
                     if (props.settings.showTaskDescription) {
-                        todo_notes = todo.notes;
+                        todo_notes = todo.notes || "";
                     }
 
                     if (props.settings.showSubTasks) {
@@ -21,7 +22,7 @@ export default function Index(props: any){
                     }
                     return <TodoItem key={todo.id} id={todo.id} todo_text={todo.text} 
                         todo_notes={todo_notes} todo_subtasks={todo_subtasks}
-                        onChange={props.onChange} onChangeChecklistItem={props.onChangeChecklistItem} completed={todo.completed} dueDate={todo.date} dueDateFormat={props.settings.dueDateFormat}/>
+                        onChange={props.onChange} onChangeChecklistItem={props.onChangeChecklistItem} completed={todo.completed} dueDate={todo.date} dueDateFormat={props.settings.dueDateFormat} apiToken={props.apiToken}/>
                 }
                     
         })
