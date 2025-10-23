@@ -187,7 +187,7 @@ class App extends React.Component<any, any> {
         })
     }
     async handleChangeChecklistItem(event: any){
-        let parentID = event.target.parentNode.parentNode.parentNode.getAttribute("id")
+        let parentID = event.target.parentNode.parentNode.getAttribute("id")
         let targetID = event.target.id
         console.log(parentID+ " , " + targetID)
         try{
