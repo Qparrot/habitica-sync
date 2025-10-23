@@ -107,8 +107,7 @@ p {
 
 input[type=checkbox] {
   margin-right: 10px;
-  margin-top: 5px;
-  align-self: start;
+  margin-top: 0;
 }
 
 .todo-content {
@@ -343,6 +342,7 @@ button {
   text-overflow: ellipsis;
   white-space: nowrap;
   min-width: 0;
+  display: flex;
 }
 
 .todo-text-container span {
