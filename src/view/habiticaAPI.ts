@@ -6,7 +6,7 @@ export async function getStats(username: string, credentials: string){
         method: 'GET',
         headers: {
             "Content-Type": "application/json",
-            "x-client": `${username}-HabiticaSync-v2`,
+            "x-client": `${username}-HabiticaSync`,
             "x-api-user": username,
             "x-api-key": credentials,
         },
@@ -20,7 +20,7 @@ export async function scoreTask(username: string, credentials: string, taskID: s
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
-            "x-client": `${username}-HabiticaSync-v2`,
+            "x-client": `${username}-HabiticaSync`,
             "x-api-user": username,
             "x-api-key": credentials,
         }
@@ -33,7 +33,7 @@ export async function makeCronReq(username: string, credentials: string){
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
-            "x-client": `${username}-HabiticaSync-v2`,
+            "x-client": `${username}-HabiticaSync`,
             "x-api-user": username,
             "x-api-key": credentials,
         }
@@ -47,7 +47,7 @@ export async function costReward(username: string, credentials: string, taskID: 
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
-            "x-client": `${username}-HabiticaSync-v2`,
+            "x-client": `${username}-HabiticaSync`,
             "x-api-user": username,
             "x-api-key": credentials,
         }
@@ -61,7 +61,7 @@ export async function scoreChecklistItem(username: string, credentials: string, 
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
-            "x-client": `${username}-HabiticaSync-v2`,
+            "x-client": `${username}-HabiticaSync`,
             "x-api-user": username,
             "x-api-key": credentials,
         }
@@ -69,7 +69,7 @@ export async function scoreChecklistItem(username: string, credentials: string, 
     return(response)
 }
 
-export async function deleteTodo(username: string, credentials: string, taskID: string) {
+export async function deleteTask(username: string, credentials: string, taskID: string) {
     console.log(username, credentials, taskID);
     const url = "https://habitica.com/api/v3/tasks/".concat(taskID)
     console.log(url);
@@ -77,7 +77,7 @@ export async function deleteTodo(username: string, credentials: string, taskID: 
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
-            "x-client": `${username}-HabiticaSync-v2`,
+            "x-client": `${username}-HabiticaSync`,
             "x-api-user": username,
             "x-api-key": credentials,
         }

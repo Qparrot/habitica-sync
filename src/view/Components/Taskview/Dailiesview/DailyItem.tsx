@@ -12,6 +12,11 @@ function DailyItem(props: any) {
                 <div className="todo-text-container" title={props.todo_text}>
                     <span dangerouslySetInnerHTML={{ __html: text_html }}></span>
                 </div>
+                <div className="delete-button">
+                    <button className="delete-button" id={props.id} onClick={() => props.onDelete(props.id)}>
+                        Del
+                    </button>
+                </div>
             </div>
             <div className="description" dangerouslySetInnerHTML={{ __html: note_html }}></div>
             {/* {console.log(props.checklist)} */}

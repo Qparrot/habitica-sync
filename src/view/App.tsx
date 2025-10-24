@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Notice } from "obsidian";
-import { getStats, scoreTask, makeCronReq, costReward, scoreChecklistItem, deleteTodo } from "./habiticaAPI"
+import { getStats, scoreTask, makeCronReq, costReward, scoreChecklistItem, deleteTask } from "./habiticaAPI"
 import Statsview from "./Components/Statsview"
 import Taskview from "./Components/Taskview"
 
@@ -46,7 +46,7 @@ class App extends React.Component<any, any> {
         this.handleChangeHabits = this.handleChangeHabits.bind(this);
         this.handleChangeRewards = this.handleChangeRewards.bind(this);
         this.handleChangeChecklistItem = this.handleChangeChecklistItem.bind(this);
-        this.handleDeleteTodo = this.handleDeleteTodo.bind(this);
+        this.handleDeleteTask = this.handleDeleteTask.bind(this);
         this.runCron = this.runCron.bind(this);
 
     }
@@ -82,6 +82,7 @@ class App extends React.Component<any, any> {
         try {
             let response = await getStats(this.username, this.credentials);
             let result = await response.json();
+            console.log("[App.tsx:86]Userdaata: ", result);
             if (result.success === false) {
                 new Notice('Login Failed, Please check credentials and try again!');
             }
@@ -206,13 +207,12 @@ class App extends React.Component<any, any> {
         }
     }
 
-    async handleDeleteTodo(id: string) {
+    async handleDeleteTask(id: string) {
         console.log("id: ", id);
         console.log("username: ", this.username);
         console.log("credentials: ", this.credentials);
         try {
-
-            let response = await deleteTodo(this.username, this.credentials, id);
+            let response = await deleteTask(this.username, this.credentials, id);
             let result = await response.json();
             console.log("result: ", result);
             if (result.success === true) {
@@ -239,7 +239,7 @@ class App extends React.Component<any, any> {
                 {content}
                 <Statsview className ="stats-view" user_data={this.state.user_data} />
                 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-                <Taskview data={this.state.tasks} handleChangeTodos={this.handleChangeTodos} settings = {this.props.plugin.settings} handleChangeDailys={this.handleChangeDailys} handleChangeHabits={this.handleChangeHabits} handleChangeRewards={this.handleChangeRewards} handleChangeChecklistItem={this.handleChangeChecklistItem} handleDeleteTodo={this.handleDeleteTodo}/>
+                <Taskview data={this.state.tasks} handleChangeTodos={this.handleChangeTodos} settings = {this.props.plugin.settings} handleChangeDailys={this.handleChangeDailys} handleChangeHabits={this.handleChangeHabits} handleChangeRewards={this.handleChangeRewards} handleChangeChecklistItem={this.handleChangeChecklistItem} handleDeleteTask={this.handleDeleteTask}/>
                 
             </div>
             );

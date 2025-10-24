@@ -22,13 +22,17 @@ export default function Index(props: any){
                     }
                     return <TodoItem key={todo.id} id={todo.id} todo_text={todo.text} 
                         todo_notes={todo_notes} todo_subtasks={todo_subtasks}
-                        onChange={props.onChange} onChangeChecklistItem={props.onChangeChecklistItem} completed={todo.completed} dueDate={todo.date} dueDateFormat={props.settings.dueDateFormat} apiToken={props.apiToken} onDelete={props.onDelete}/>
+                        onChange={props.onChange} onChangeChecklistItem={props.onChangeChecklistItem} completed={todo.completed} 
+                        dueDate={todo.date} dueDateFormat={props.settings.dueDateFormat} apiToken={props.apiToken} onDelete={props.onDelete}/>
                 }
                     
         })
         const completedTodos = props.todos.map((todo: any) => {
             if(todo.completed)
-                return <TodoItem key={todo.id} id={todo.id} todo_text={todo.text} todo_notes={todo.notes} onChange={props.onChange} completed={todo.completed} onDelete={props.onDelete}/>
+                return <TodoItem key={todo.id} id={todo.id} todo_text={todo.text} 
+                    todo_notes={todo.notes} 
+                    onChange={props.onChange} completed={todo.completed} 
+                    onDelete={props.onDelete}/>
         })
         const display = <div id="classDisplay">
                             <Tabs>
