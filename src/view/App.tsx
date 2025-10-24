@@ -82,7 +82,6 @@ class App extends React.Component<any, any> {
         try {
             let response = await getStats(this.username, this.credentials);
             let result = await response.json();
-            console.log("[App.tsx:86]Userdaata: ", result);
             if (result.success === false) {
                 new Notice('Login Failed, Please check credentials and try again!');
             }
