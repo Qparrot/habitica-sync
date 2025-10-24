@@ -41,7 +41,6 @@
     font-weight: bold;
     font-size: 16px;
     padding-left: 0;
-    gap: 10px;
 }
 
 .description {
@@ -332,7 +331,6 @@ button {
 .todo-text-row {
   display: flex;
   align-items: center;
-  gap: 10px;
   width: 100%;
 }
 
